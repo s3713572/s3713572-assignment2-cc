@@ -1,0 +1,6 @@
+db/**
+db
+app/__pycache__/*
+app/__pycache__/
+app/config/__pycache__/
+app/.env
