@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <br>
+        <div class="table-responsive">
+        <table class="table table-hover">
+            {% for music in musics %}
+                <article class="media content-section">
+                    <div class="media-body">
+                        <p style="text-align: center;">
+                            <h4>Title: {{music.title}} </h4>
+                        </p>
+                        <hr>
+                        <p style="text-align: left;">
+                            <img class="rounded-circle image-fix" src="{{ music.img_url }}" style="border-color: black;">
+                            <small style="margin-left: 60px;">Artist: {{music.artist}}    ||</small>
+                            <small class="text-muted">year: {{ music.year }}</small>
+                        </p>
+                        <br>
+                        <a class="btn btn-outline-dark" type="button" href="{{url_for('remove', music_id=music.music_id)}}">Remove</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock content%}

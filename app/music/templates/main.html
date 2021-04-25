@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+        <br>
+        <form class="row row-cols-lg-auto g-3 align-items-center" method="GET" action="{{url_for('search')}}">
+            <div class="col-12">
+              <label class="visually-hidden" for="title">Title</label>
+              <div class="input-group">
+                <div class="input-group-text">Title</div>
+                <input type="text" class="form-control" name="title" id="title">
+              </div>
+            </div>
+            <div class="col-12">
+                <label class="visually-hidden" for="artist">Artist</label>
+                <div class="input-group">
+                  <div class="input-group-text">Artist</div>
+                  <input type="text" class="form-control" name="artist" id="artist">
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="visually-hidden" for="year">Year</label>
+                <div class="input-group">
+                  <div class="input-group-text">Year</div>
+                  <input type="text" class="form-control" name="year" id="year">
+                </div>
+              </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+          <br>
+        {{ notification }}
+        {{ pagination.links }}
+        <div class="table-responsive">
+        <table class="table table-hover">
+            {% for music in musics %}
+                <article class="media content-section">
+                    <div class="media-body">
+                        <p style="text-align: center;">
+                            <h4>Title: {{music.title}} </h4>
+                        </p>
+                        <hr>
+                        <p style="text-align: left;">
+                            <img class="rounded-circle image-fix" src="{{ music.img_url }}" style="border-color: black;">
+                            <small style="margin-left: 60px;">Artist: {{music.artist}}    ||</small>
+                            <small class="text-muted">year: {{ music.year }}</small>
+                        </p>
+                        <br>
+                        <a class="btn btn-outline-dark" type="button" href="{{url_for('subscript', music_id=music.music_id, button_status=music.button_status)}}">{{ music.button_status }}</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+        {{ pagination.links }}
+
+    </div>
+{% endblock content%}
