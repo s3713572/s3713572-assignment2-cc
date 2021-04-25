@@ -1,7 +1,6 @@
 import boto3
 from flask import Flask
 from dotenv import dotenv_values
-from config.db import db_conifg
 
 
 app = Flask(__name__)

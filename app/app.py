@@ -2,10 +2,6 @@ from music import app
 from music.seeds import create_10_logins, create_music_table, load_json_data
 import json
 from decimal import Decimal
-# app.config['MYSQL_HOST'] = db_conifg['MYSQL_HOST']
-# app.config['MYSQL_USER'] = db_conifg['MYSQL_USER']
-# app.config['MYSQL_PASSWORD'] = db_conifg['MYSQL_PASSWORD']
-# app.config['MYSQL_DB'] = db_conifg['MYSQL_DB']
 
 
 
