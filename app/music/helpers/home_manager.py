@@ -8,17 +8,17 @@ import uuid
 def filt_music(title,artist,year,email):
 
     if title and artist and year:
-        musics = Music.where(Attr('title').eq(title)&Attr('artist').eq(artist)&Attr('year').eq(year))
+        musics = Music.where(Attr('title').contains(title)&Attr('artist').contains(artist)&Attr('year').contains(year))
     if title and artist and not year:
-        musics = Music.where(Attr('title').eq(title)&Attr('artist').eq(artist))
+        musics = Music.where(Attr('title').contains(title)&Attr('artist').contains(artist))
     elif title and not artist and not year:
-        musics = Music.where(Attr('title').eq(title))
+        musics = Music.where(Attr('title').contains(title))
     elif not title and artist and not year:
-        musics = Music.where(Attr('artist').eq(artist))
+        musics = Music.where(Attr('artist').contains(artist))
     elif not title and not artist and year:
-        musics = Music.where(Attr('year').eq(year))
+        musics = Music.where(Attr('year').contains(year))
     elif not title and artist and year:
-        musics = Music.where(Attr('artist').eq(artist)&Attr('year').eq(year))
+        musics = Music.where(Attr('artist').contains(artist)&Attr('year').contains(year))
     else:
         musics = Music.all()
     q = Queue()
