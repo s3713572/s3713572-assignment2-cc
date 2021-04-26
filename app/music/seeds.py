@@ -64,80 +64,79 @@ def load_json_data(musics):
         file_object_from_req = req_for_image.raw
         req_data = file_object_from_req.read()
 
-
         s3.Bucket(bucket_name).put_object(Key= item.music_id, Body=req_data)
 
 def create_10_logins():
-    if Login.find('s37135720'):
+    if Login.find('s37135720@student.rmit.edu.au'):
         return
     
     table = dynamodb.Table('Login')
     table.put_item(
     Item={
-            'email': 's37135720',
+            'email': 's37135720@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 0',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135721',
+            'email': 's37135721@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 1',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135722',
+            'email': 's37135722@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 2',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135723',
+            'email': 's37135723@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 3',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135724',
+            'email': 's37135724@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 4',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135725',
+            'email': 's37135725@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 5',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135726',
+            'email': 's37135726@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 6',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135727',
+            'email': 's37135727@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 7',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135728',
+            'email': 's37135728@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 8',
             'password': '012345',
         }
     )
     table.put_item(
     Item={
-            'email': 's37135729',
+            'email': 's37135729@student.rmit.edu.au',
             'user_name': 'Qucheng Zhang 9',
             'password': '012345',
         }

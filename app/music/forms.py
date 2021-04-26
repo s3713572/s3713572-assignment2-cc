@@ -13,7 +13,7 @@ class LoginForm(FlaskForm):
 
 class RegistrationForm(FlaskForm):
     email = StringField('Email',
-                              validators=[DataRequired(message=('Please enter your ID'))])
+                              validators=[DataRequired(message=('Please enter your ID')), Email(message=('please make sure your email format is correct'))])
     user_name = StringField('Username',
                            validators=[DataRequired(message=('Please enter your username'))])
 
