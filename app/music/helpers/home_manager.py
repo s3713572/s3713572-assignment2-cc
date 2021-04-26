@@ -61,9 +61,9 @@ def single_music(music, email, q):
 
     img_url = "https://music-image.s3.amazonaws.com/" + music.music_id
     if is_music_subscripted(music.music_id, email):
-        button_status = "Subscripted"
+        button_status = "Subscribed"
     else:
-        button_status = "Subscript"
+        button_status = "Subscribe"
     result = MusicsHelper(music.title,music.artist,music.year,music.web_url,img_url,music.music_id,button_status)
     q.put(result)
 
@@ -75,7 +75,7 @@ def is_music_subscripted(music_id,email):
     return False
 
 def onlick_subscription_button(button_value, music_id, email):
-    if button_value == "Subscript":
+    if button_value == "Subscribe":
         subscription_id = str(uuid.uuid1()).replace("-","")
 
         subscription = Subscription(music_id, email, subscription_id)
