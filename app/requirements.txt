@@ -6,5 +6,4 @@ botocore
 flask-wtf
 requests
 flask-paginate
-email_validator
 wtforms
