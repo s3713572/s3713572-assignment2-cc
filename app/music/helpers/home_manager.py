@@ -81,7 +81,7 @@ def onlick_subscription_button(button_value, music_id, email):
         subscription = Subscription(music_id, email, subscription_id)
         subscription.insert()
         return "Subscript"
-    if button_value == "Subscripted":
+    if button_value == "Subscribed":
         subscriptions = Subscription.where(Attr("email").eq(email)&Attr("music_id").eq(music_id))
         for subscription in subscriptions:
             subscription_id = subscription.subscription_id
