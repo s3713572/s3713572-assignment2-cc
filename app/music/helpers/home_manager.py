@@ -6,9 +6,12 @@ from queue import Queue
 import uuid
 
 def filt_music(title,artist,year,email):
-
+    print(title)
+    print(artist)
+    print(year)
     if title and artist and year:
         musics = Music.where(Attr('title').contains(title)&Attr('artist').contains(artist)&Attr('year').contains(year))
+        print("wo jin lai le")
     if title and artist and not year:
         musics = Music.where(Attr('title').contains(title)&Attr('artist').contains(artist))
     elif title and not artist and not year:
@@ -19,8 +22,9 @@ def filt_music(title,artist,year,email):
         musics = Music.where(Attr('year').contains(year))
     elif not title and artist and year:
         musics = Music.where(Attr('artist').contains(artist)&Attr('year').contains(year))
-    else:
-        musics = Music.all()
+    elif len(title) == 0 and len(artist) == 0 and len(year) == 0:
+        musics = []
+        print("test path")
     q = Queue()
     threads = []
     fetched_musics = []
@@ -32,9 +36,11 @@ def filt_music(title,artist,year,email):
     for thread in threads:
         thread.join()
 
+    print("thread = " + str(len(threads)))
     for _ in range(len(threads)):
         fetched_musics.append(q.get())
 
+    print(len(fetched_musics))
     return fetched_musics
 
 
